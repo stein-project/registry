@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "migrations": [
+    {
+      "id": "third-party-combat-mouse",
+      "author": "X4vieer",
+      "mods": [
+        {
+          "id": "combat",
+          "modId": "steincombat",
+          "name": "Combat",
+          "source": "https://github.com/brenoxavier/SteinCombat/releases/latest/download/steinmods.json"
+        },
+        {
+          "id": "mouse",
+          "modId": "steinmouse",
+          "name": "Mouse",
+          "source": "https://github.com/brenoxavier/SteinMouse/releases/latest/download/steinmods.json"
+        }
+      ]
+    }
+  ]
+}

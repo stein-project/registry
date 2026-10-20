@@ -1,0 +1,20 @@
+{
+  "format": 1,
+  "name": "HUD",
+  "author": "X4vieer",
+  "homepage": "https://github.com/stein-project/hud",
+  "source": "https://stein-project.github.io/registry/mods/hud.json",
+  "mods": [
+    {
+      "id": "hud",
+      "modId": "steinhud",
+      "name": "HUD",
+      "file": "HUD.steinmod",
+      "version": "0.1.13",
+      "url": "https://github.com/stein-project/hud/releases/download/v0.1.13/HUD.steinmod",
+      "sha256": "22ae4f6f540be35d88ecda47f6245dfe461dc8f7f36aa8bb9bb669fecefdcc0a",
+      "loader": "0.1.21",
+      "description": "HUD personalizável, minimapa e lista do Tab."
+    }
+  ]
+}

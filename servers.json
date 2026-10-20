@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "servers": [
+    {
+      "name": "Hypixel",
+      "hosts": [
+        "hypixel.net"
+      ],
+      "rules": "https://support.hypixel.net/hc/en-us/articles/6472550754962",
+      "disable": [
+        "minimap",
+        "targetInfo",
+        "playerDistance",
+        "chatMacros",
+        "liveReplay"
+      ]
+    }
+  ]
+}

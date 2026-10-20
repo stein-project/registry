@@ -1,0 +1,9 @@
+{
+  "version": "0.3.2",
+  "base": "https://github.com/stein-project/client/releases/download/v0.3.2",
+  "files": {
+    "windows": {
+      "SteinClient.exe": "3c86fba3bc294c6164147482bc50d0edc8c6b775fe8d179492ac1e79238a04f5"
+    }
+  }
+}

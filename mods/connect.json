@@ -1,0 +1,20 @@
+{
+  "format": 1,
+  "name": "Connect",
+  "author": "X4vieer",
+  "homepage": "https://github.com/Stein-Project/connect",
+  "source": "https://stein-project.github.io/registry/mods/connect.json",
+  "mods": [
+    {
+      "id": "connect",
+      "modId": "steinconnect",
+      "name": "Connect",
+      "file": "Connect.steinmod",
+      "version": "0.1.8",
+      "url": "https://github.com/Stein-Project/connect/releases/download/v0.1.8/Connect.steinmod",
+      "sha256": "55c430cb8c45f5cac16d3fe68bba1c2e2d69a7c80e3115848c49166acfc4d17f",
+      "loader": "0.1.16",
+      "description": "Contas, reconexão automática e proxy SOCKS5."
+    }
+  ]
+}

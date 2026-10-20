@@ -1,0 +1,20 @@
+{
+  "format": 1,
+  "name": "Replay",
+  "author": "X4vieer",
+  "homepage": "https://github.com/Stein-Project/replay",
+  "source": "https://stein-project.github.io/registry/mods/replay.json",
+  "mods": [
+    {
+      "id": "replay",
+      "modId": "steinreplay",
+      "name": "Replay",
+      "file": "Replay.steinmod",
+      "version": "0.1.1",
+      "url": "https://github.com/Stein-Project/replay/releases/download/v0.1.1/Replay.steinmod",
+      "sha256": "d498af543afe753d796934438c0f35ab39bdfb332b0127a853a575dbbdaee1fa",
+      "loader": "0.1.24",
+      "description": "Replay da morte: veja como você morreu antes de renascer."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "schema": 1,
+  "ramGb": 3,
+  "javaArgs": "-Xmx3G -Xms256M -XX:SoftMaxHeapSize=768M -XX:+UseZGC -XX:-ZProactive --enable-native-access=ALL-UNNAMED"
+}

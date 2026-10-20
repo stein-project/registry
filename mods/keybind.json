@@ -1,0 +1,20 @@
+{
+  "format": 1,
+  "name": "Keybind",
+  "author": "X4vieer",
+  "homepage": "https://github.com/Stein-Project/keybind",
+  "source": "https://stein-project.github.io/registry/mods/keybind.json",
+  "mods": [
+    {
+      "id": "keybind",
+      "modId": "steinkeybind",
+      "name": "Keybind",
+      "file": "Keybind.steinmod",
+      "version": "0.1.1",
+      "url": "https://github.com/Stein-Project/keybind/releases/download/v0.1.1/Keybind.steinmod",
+      "sha256": "e52cd3e946ef7302d079f5ca8f55893c95aa76e3ab417e79957eb81f0cc8250b",
+      "loader": "0.1.20",
+      "description": "Mensagens e comandos numa tecla."
+    }
+  ]
+}

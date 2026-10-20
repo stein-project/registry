@@ -1,0 +1,51 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+#
+# Copyright (c) 2026 Breno Xavier
+#
+# Publishes the registry on GitHub Pages (https://stein-project.github.io/registry/): every .json of the repository,
+# each with its ed25519 signature next to it (<file>.sig), signed here with the REGISTRY_SIGNING_KEY secret (the PEM
+# private key). Runs on every push to main — including the commits the other repositories' release workflows make
+# here — and by hand. The clients refuse any file whose signature does not match the public key they carry, so a
+# change that skips this workflow is simply not believed.
+name: publish
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sign
+        env:
+          REGISTRY_SIGNING_KEY: ${{ secrets.REGISTRY_SIGNING_KEY }}
+        run: |
+          [ -n "$REGISTRY_SIGNING_KEY" ] || { echo "::error::the REGISTRY_SIGNING_KEY secret is missing"; exit 1; }
+          key="$RUNNER_TEMP/registry.pem"
+          printf '%s\n' "$REGISTRY_SIGNING_KEY" > "$key"
+          chmod 600 "$key"
+          bash tools/sign.sh "$key" _site
+          rm -f "$key"
+          bash tools/verify.sh _site
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4
