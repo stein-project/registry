@@ -18,7 +18,9 @@ trap 'rm -rf "$TMP"' EXIT
 # DER SubjectPublicKeyInfo of an ed25519 key: the fixed 12-byte prefix, then the raw key.
 { printf '\x30\x2a\x30\x05\x06\x03\x2b\x65\x70\x03\x21\x00'; printf '%s' "$PUB" | base64 -d; } > "$TMP/pub.der"
 openssl pkey -pubin -inform DER -in "$TMP/pub.der" -out "$TMP/pub.pem"
-cd "$ROOT/$DIR"
+# A relative dir is taken from the repository root, as sign.sh does.
+case "$DIR" in /* | [A-Za-z]:*) ;; *) DIR="$ROOT/$DIR" ;; esac
+cd "$DIR"
 bad=0
 while IFS= read -r f; do
     base64 -d < "$f.sig" > "$TMP/sig.bin"
