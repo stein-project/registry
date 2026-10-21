@@ -10,6 +10,14 @@ Published at **https://stein-project.github.io/registry/** by the `publish` work
 programs carry the public key and refuse a file without a valid signature, keeping their last good copy instead. The
 private key is never in a repository: in CI it is the `REGISTRY_SIGNING_KEY` secret.
 
+**After a release, run `publish` by hand** (Actions > publish > Run workflow, also on the GitHub app). Before signing,
+`tools/collect.sh` reads the releases listed in `tools/releases.tsv` and brings those files up to date: each official
+mod's `mods/<id>.json` from its latest release's `steinmods.json`, `client.json` from the Stein Client's `update.json`
+and `latest`/`test.loader` of `stein.json` from the installer's releases. No other repository writes here, so none
+needs a token for it. A release that cannot be read, or whose file is not valid, does not reach the registry: the
+published copy of that file stays, with a warning in the run. The copies of those files in this repository are only
+the starting point; the published ones are the current ones.
+
 | File | Read by | What it holds |
 |---|---|---|
 | `stein.json` | Loader, Stein Client, installer | links (Discord, site, player heads), the latest pack version, the menu news, the official mods enabled by default and their indexes (`sources`) |
@@ -39,8 +47,8 @@ as 1); a program skips a file whose schema it does not know and keeps its last c
   "sources": ["https://stein-project.github.io/registry/mods/hud.json", "..."] }
 ```
 
-`latest` is written by the installer's release workflow. `sources` are the official mods; each mod's release workflow
-writes its own `mods/<id>.json`.
+`latest` comes from the installer's releases (`tools/collect.sh`). `sources` are the official mods; a mod that joins
+also needs its line in `tools/releases.tsv`.
 
 **`launch.json`** — `ramGb` (the `-Xmx` the game gets) and `javaArgs`. **`compat.json`** — a list of rules, each
 `{ "when": { "os": "windows|macos|linux", "arch": "x86_64|aarch64", "gpuVendor": "...", "gpuRenderer": "...",

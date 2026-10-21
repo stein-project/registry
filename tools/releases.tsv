@@ -1,0 +1,10 @@
+# The registry files that follow a repository's releases (tools/collect.sh). One per line, separated by tabs:
+#   <file in the registry>	<owner/repo>	<what to take from its releases>
+# "steinmods.json" is a mod's index, "update.json" the Stein Client's, "installer" the "latest" and "test.loader" of
+# stein.json. A mod that joins also needs its index in "sources" of stein.json.
+mods/hud.json	stein-project/hud	steinmods.json
+mods/connect.json	stein-project/connect	steinmods.json
+mods/keybind.json	stein-project/keybind	steinmods.json
+mods/replay.json	stein-project/replay	steinmods.json
+client.json	stein-project/client	update.json
+stein.json	stein-project/installer	installer

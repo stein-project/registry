@@ -5,10 +5,12 @@
 # Copyright (c) 2026 Breno Xavier
 #
 # Publishes the registry on GitHub Pages (https://stein-project.github.io/registry/): every .json of the repository,
-# each with its ed25519 signature next to it (<file>.sig), signed here with the REGISTRY_SIGNING_KEY secret (the PEM
-# private key). Runs on every push to main — including the commits the other repositories' release workflows make
-# here — and by hand. The clients refuse any file whose signature does not match the public key they carry, so a
-# change that skips this workflow is simply not believed.
+# with the files that follow the releases brought up to date first (tools/collect.sh: the mods' indexes, client.json
+# and the installer's "latest" in stein.json), each with its ed25519 signature next to it (<file>.sig), signed here
+# with the REGISTRY_SIGNING_KEY secret (the PEM private key). Runs on every push to main and by hand (Actions >
+# publish > Run workflow): after a release, run it by hand to put the new version in the registry. No other repository
+# writes here, so none needs a token for it. The clients refuse any file whose signature does not match the public key
+# they carry, so a change that skips this workflow is simply not believed.
 name: publish
 
 on:
@@ -33,6 +35,10 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - name: Collect the releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash tools/collect.sh
       - name: Sign
         env:
           REGISTRY_SIGNING_KEY: ${{ secrets.REGISTRY_SIGNING_KEY }}
