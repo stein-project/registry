@@ -9,15 +9,38 @@
           "id": "combat",
           "modId": "steincombat",
           "name": "Combat",
-          "source": "https://github.com/brenoxavier/SteinCombat/releases/latest/download/steinmods.json"
+          "source": "https://github.com/Stein-Project/combat/releases/latest/download/steinmods.json"
         },
         {
           "id": "mouse",
           "modId": "steinmouse",
           "name": "Mouse",
-          "source": "https://github.com/brenoxavier/SteinMouse/releases/latest/download/steinmods.json"
+          "source": "https://github.com/Stein-Project/mouse/releases/latest/download/steinmods.json"
         }
       ]
+    },
+    {
+      "id": "addition-keybind",
+      "author": "X4vieer",
+      "notice": "O Keybind agora é uma adição, fora dos mods padrão. Ele continua instalado, com as suas teclas e sendo atualizado.",
+      "mods": [
+        {
+          "id": "keybind",
+          "modId": "steinkeybind",
+          "name": "Keybind",
+          "source": "https://stein-project.github.io/registry/mods/keybind.json"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "from": "https://github.com/brenoxavier/SteinCombat/releases/latest/download/steinmods.json",
+      "to": "https://github.com/Stein-Project/combat/releases/latest/download/steinmods.json"
+    },
+    {
+      "from": "https://github.com/brenoxavier/SteinMouse/releases/latest/download/steinmods.json",
+      "to": "https://github.com/Stein-Project/mouse/releases/latest/download/steinmods.json"
     }
   ]
 }
