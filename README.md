@@ -25,8 +25,8 @@ the starting point; the published ones are the current ones.
 | `client.json` | Stein Client | the launcher's latest version: download base and sha256 of each executable |
 | `launch.json` | Stein Client | the game's memory and Java arguments |
 | `compat.json` | Stein Client | extra Java arguments by system, architecture and graphics card |
-| `servers.json` | Loader | features turned off on a given server (only while playing there) |
-| `revoked.json` | Loader, Stein Client | mods that must not load or be installed, by sha256 |
+| `servers.json` | Loaders up to 0.1.30 | features turned off on a given server; new Loaders leave this to the server itself |
+| `revoked.json` | Loaders up to 0.1.30, older Stein Clients | mods that must not load, by sha256; never used, and nothing new reads it |
 | `migrations.json` | Stein Client | official mods that moved to a third-party source |
 
 Files carry `"schema": 1` (`client.json` and the mod indexes keep their own formats; a file without `schema` counts
@@ -43,7 +43,7 @@ as 1); a program skips a file whose schema it does not know and keeps its last c
              "heads": "https://mc-heads.net/avatar/{uuid}/{size}" },
   "latest": { "version": "0.1.35", "url": "https://github.com/stein-project/installer/releases/latest" },
   "news": { "id": "discord", "title": { "pt_BR": "...", "en_US": "..." }, "text": { "...": "..." }, "url": "https://..." },
-  "defaultMods": ["hud", "connect", "keybind", "replay"],
+  "defaultMods": ["hud", "connect", "replay"],
   "sources": ["https://stein-project.github.io/registry/mods/hud.json", "..."] }
 ```
 
@@ -81,7 +81,7 @@ are names the mods ask the Loader about (`Server.allows`):
 | `chatMacros` | Keybind | every bind |
 | `liveReplay` | Replay | the death replay during the match (still recorded and saved) |
 
-**`revoked.json`** — `{ "schema": 1, "mods": [ { "sha256": "...", "reason": "..." } ] }`. **`migrations.json`** — each
+**`revoked.json`** — `{ "schema": 1, "mods": [ { "sha256": "...", "reason": "..." } ] }`. **`migrations.json`** — `sources` lists added sources that changed address (`from`, `to`), applied on every start; each
 migration runs once per folder: `{ "id", "author", "mods": [ { "id", "modId", "name", "source" } ] }`.
 
 ## Changing something

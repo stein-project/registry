@@ -27,13 +27,11 @@
   "defaultMods": [
     "hud",
     "connect",
-    "keybind",
     "replay"
   ],
   "sources": [
     "https://stein-project.github.io/registry/mods/hud.json",
     "https://stein-project.github.io/registry/mods/connect.json",
-    "https://stein-project.github.io/registry/mods/keybind.json",
     "https://stein-project.github.io/registry/mods/replay.json"
   ]
 }
