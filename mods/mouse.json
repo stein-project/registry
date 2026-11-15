@@ -1,0 +1,39 @@
+{
+  "format": 1,
+  "name": "Mouse",
+  "author": "X4vieer",
+  "homepage": "https://github.com/stein-project/mouse",
+  "source": "https://stein-project.github.io/registry/mods/mouse.json",
+  "mods": [
+    {
+      "id": "mouse",
+      "modId": "steinmouse",
+      "name": "Mouse",
+      "file": "Mouse.steinmod",
+      "version": "0.1.7",
+      "url": "https://github.com/stein-project/mouse/releases/download/v0.1.7/Mouse.steinmod",
+      "sha256": "7ea75224b3ab987e45c4278f95a9335e5656ff39efd1037190c752e467e946d2",
+      "loader": "0.1.16",
+      "description": "Shift e arrastar para transferir itens em inventários e baús.",
+      "versions": [
+        {
+          "id": "mouse",
+          "modId": "steinmouse",
+          "name": "Mouse",
+          "file": "Mouse.steinmod",
+          "description": "Shift e arrastar para transferir itens em inventários e baús.",
+          "version": "0.1.7",
+          "url": "https://github.com/stein-project/mouse/releases/download/v0.1.7/Mouse.steinmod",
+          "sha256": "7ea75224b3ab987e45c4278f95a9335e5656ff39efd1037190c752e467e946d2",
+          "loader": "0.1.16",
+          "test": false,
+          "date": "2026-10-30",
+          "changelog": {
+            "en_US": "# Mouse 0.1.7: back in the Stein organization\n\nMouse is an official Stein Project mod again, as an extra. Nothing changes in the game.\n\n- **New address**: the mod now lives at `Stein-Project/mouse`. Whoever already uses it keeps getting updates.\n- **Update notice**: the Loader's Panel shows when a new version of this mod is out.",
+            "pt_BR": "# Mouse 0.1.7: de volta à organização do Stein\n\nO Mouse volta a ser um mod oficial do Stein Project, como extra. Nada muda no jogo.\n\n- **Novo endereço**: o mod agora fica em `Stein-Project/mouse`. Quem já usa continua recebendo as atualizações.\n- **Aviso de atualização**: o Painel do Loader mostra quando sai uma versão nova deste mod."
+          }
+        }
+      ]
+    }
+  ]
+}

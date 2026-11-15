@@ -1,0 +1,39 @@
+{
+  "format": 1,
+  "name": "Minimap",
+  "author": "X4vieer",
+  "homepage": "https://github.com/stein-project/minimap",
+  "source": "https://stein-project.github.io/registry/mods/minimap.json",
+  "mods": [
+    {
+      "id": "minimap",
+      "modId": "steinminimap",
+      "name": "Minimap",
+      "file": "Minimap.steinmod",
+      "version": "0.1.0",
+      "url": "https://github.com/stein-project/minimap/releases/download/v0.1.0/Minimap.steinmod",
+      "sha256": "552ef823bd55e9bb9fbb2a138bda9f340e9172695e9ec63ca52e25c89864b33b",
+      "loader": "0.1.28",
+      "description": "Minimapa com mapa ou radar.",
+      "versions": [
+        {
+          "id": "minimap",
+          "modId": "steinminimap",
+          "name": "Minimap",
+          "file": "Minimap.steinmod",
+          "description": "Minimapa com mapa ou radar.",
+          "version": "0.1.0",
+          "url": "https://github.com/stein-project/minimap/releases/download/v0.1.0/Minimap.steinmod",
+          "sha256": "552ef823bd55e9bb9fbb2a138bda9f340e9172695e9ec63ca52e25c89864b33b",
+          "loader": "0.1.28",
+          "test": false,
+          "date": "2026-10-30",
+          "changelog": {
+            "en_US": "# Minimap 0.1.0: the minimap in a mod of its own\n\nThe minimap leaves the HUD and becomes a separate mod, as an official Stein Project extra.\n\n- **Everything kept**: the place on the screen, the size and the options of whoever used the minimap in the HUD come along.\n- **Terrain or radar**: detailed terrain or radar only, square or round, with players, mobs and spawners.\n- **Servers**: a server can turn off the minimap while you play there.",
+            "pt_BR": "# Minimap 0.1.0: o minimapa em um mod próprio\n\nO minimapa sai do HUD e vira um mod separado, como extra oficial do Stein Project.\n\n- **Tudo guardado**: a posição na tela, o tamanho e as opções de quem já usava o minimapa no HUD vêm junto.\n- **Terreno ou radar**: terreno detalhado ou só radar, quadrado ou redondo, com jogadores, mobs e spawners.\n- **Servidores**: um servidor pode desligar o minimapa enquanto você joga nele."
+          }
+        }
+      ]
+    }
+  ]
+}

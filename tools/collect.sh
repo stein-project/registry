@@ -7,8 +7,10 @@
 #
 # Brings the files that follow the releases (tools/releases.tsv) up to date in the working tree, before signing: each
 # official mod's index from its latest release's steinmods.json (with "source" pointing here), client.json from the
-# Stein Client's update.json, and "latest"/"test.loader" of stein.json from the installer's releases. The registry
-# reads the releases instead of the releases writing here, so no other repository needs a token for it.
+# Stein Client's update.json, "latest"/"test.loader" of stein.json from the installer's releases, and the version
+# history the Stein Client lets the player choose from (packs.json and "versions" in each mod index, from the first tag
+# in the fourth column on; tools/history.py). The registry reads the releases instead of the releases writing here, so
+# no other repository needs a token for it.
 #
 #   tools/collect.sh
 #
@@ -22,6 +24,9 @@ cd "$ROOT"
 REGISTRY_URL="${REGISTRY_URL:-https://stein-project.github.io/registry/}"
 # jq on the Windows runner ends lines with CRLF, and a \r at the end of a value breaks comparisons.
 jq() { command jq "$@" | tr -d '\r'; }
+# python3, or python where python3 is only the Windows Store alias (as tools/sign.sh).
+PY=python3
+"$PY" -c "" 2>/dev/null || PY=python
 work="$(mktemp -d)"
 trap 'rm -rf "$work"' EXIT
 
@@ -41,7 +46,7 @@ asset() {
 }
 
 mod_index() {
-  local file="$1" repo="$2"
+  local file="$1" repo="$2" first="$3"
   asset "$repo" steinmods.json "$work/in.json" || { keep "$file" "no steinmods.json on the latest release of $repo"; return; }
   if ! command jq -e '.format == 1 and (.mods | type == "array" and length > 0)
       and all(.mods[]; (.id | type == "string") and (.version | type == "string")
@@ -50,8 +55,18 @@ mod_index() {
     keep "$file" "the steinmods.json of $repo is not a valid index"
     return
   fi
+  # The "test" block a test release adds to the stable index stays: older Stein Clients do not read "versions".
   jq --arg s "${REGISTRY_URL}$file" '.source = $s' "$work/in.json" > "$file"
   echo "$file: $(jq -r '[.mods[] | "\(.id) \(.version)"] | join(", ")' "$file")"
+  # Without its history the index still works (the Stein Client offers only the current version and the test one).
+  [ -z "$first" ] || "$PY" tools/history.py mod "$file" "$repo" "$first" || true
+}
+
+# packs.json: the pack versions the player can choose from in the Stein Client.
+packs() {
+  local file="$1" repo="$2" first="$3"
+  "$PY" tools/history.py packs "$file" "$repo" "${first:?packs needs the first tag}" \
+    || keep "$file" "the pack history of $repo could not be built"
 }
 
 client() {

@@ -12,8 +12,9 @@ private key is never in a repository: in CI it is the `REGISTRY_SIGNING_KEY` sec
 
 **After a release, run `publish` by hand** (Actions > publish > Run workflow, also on the GitHub app). Before signing,
 `tools/collect.sh` reads the releases listed in `tools/releases.tsv` and brings those files up to date: each official
-mod's `mods/<id>.json` from its latest release's `steinmods.json`, `client.json` from the Stein Client's `update.json`
-and `latest`/`test.loader` of `stein.json` from the installer's releases. No other repository writes here, so none
+mod's `mods/<id>.json` from its latest release's `steinmods.json`, `client.json` from the Stein Client's `update.json`,
+`latest`/`test.loader` of `stein.json` from the installer's releases, and the version history the Stein Client lets
+the player choose from (`packs.json` and `versions` in each mod index, `tools/history.py`). No other repository writes here, so none
 needs a token for it. A release that cannot be read, or whose file is not valid, does not reach the registry: the
 published copy of that file stays, with a warning in the run. The copies of those files in this repository are only
 the starting point; the published ones are the current ones.
@@ -21,13 +22,15 @@ the starting point; the published ones are the current ones.
 | File | Read by | What it holds |
 |---|---|---|
 | `stein.json` | Loader, Stein Client, installer | links (Discord, site, player heads), the latest pack version, the menu news, the official mods enabled by default and their indexes (`sources`) |
-| `mods/<id>.json` | Stein Client, installer | each official mod's index (the `steinmods.json` format): version, file, sha256, minimum Loader |
+| `mods/<id>.json` | Stein Client, installer | each official mod's index (the `steinmods.json` format): version, file, sha256, minimum Loader, and its `versions` history; the extras (Keybind, Minimap, Mouse, Combat) too, which the player adds by this link |
+| `packs.json` | Stein Client | the pack versions the player can choose from (Stein Bridge and Stein Loader together), test ones included |
 | `client.json` | Stein Client | the launcher's latest version: download base and sha256 of each executable |
 | `launch.json` | Stein Client | the game's memory and Java arguments |
 | `compat.json` | Stein Client | extra Java arguments by system, architecture and graphics card |
 | `servers.json` | Loaders up to 0.1.30 | features turned off on a given server; new Loaders leave this to the server itself |
 | `revoked.json` | Loaders up to 0.1.30, older Stein Clients | mods that must not load, by sha256; never used, and nothing new reads it |
 | `migrations.json` | Stein Client | official mods that moved to a third-party source |
+| `breaks.json` | Stein Client | known breaks: mod versions that misbehave with a range of Loader versions (a warning before the game opens) |
 
 Files carry `"schema": 1` (`client.json` and the mod indexes keep their own formats; a file without `schema` counts
 as 1); a program skips a file whose schema it does not know and keeps its last copy.
@@ -44,11 +47,44 @@ as 1); a program skips a file whose schema it does not know and keeps its last c
   "latest": { "version": "0.1.35", "url": "https://github.com/stein-project/installer/releases/latest" },
   "news": { "id": "discord", "title": { "pt_BR": "...", "en_US": "..." }, "text": { "...": "..." }, "url": "https://..." },
   "defaultMods": ["hud", "connect", "replay"],
-  "sources": ["https://stein-project.github.io/registry/mods/hud.json", "..."] }
+  "sources": ["https://stein-project.github.io/registry/mods/hud.json", "..."],
+  "extras": ["https://stein-project.github.io/registry/mods/keybind.json", "..."] }
 ```
 
 `latest` comes from the installer's releases (`tools/collect.sh`). `sources` are the official mods; a mod that joins
-also needs its line in `tools/releases.tsv`.
+also needs its line in `tools/releases.tsv`. `extras` are the official mods the player adds by hand (Keybind, Minimap,
+Mouse, Combat): the Stein Client shows their release notes in a tab of their own and installs none of them until the
+player adds it.
+
+**`breaks.json`** — a change of behaviour between a mod and the Loader that the files cannot show, written down when
+someone finds it. Before the game opens the Stein Client checks each mod in the folder against the installed Loader
+(every class, method and field it uses must exist there) and adds the rules that name it; it only warns, and the
+player chooses whether to play anyway. `mod` is the id inside the `.steinmod`; the bounds are inclusive and optional.
+
+```json
+{ "schema": 1,
+  "breaks": [ { "mod": "steincombat", "modMax": "0.1.29", "loaderMin": "0.1.35",
+                "reason": { "pt_BR": "...", "en_US": "..." } } ] }
+```
+
+**`packs.json`** and **`versions`** — the history the Stein Client offers, built from the releases by
+`tools/history.py`, from the first tag in the fourth column of `tools/releases.tsv` on (the versions out when the
+history began; nothing older is ever added). Newest first; test versions (pre-releases, `-rc.N`) carry `"test": true`
+and are only offered with "Show test versions" on, and only installed when the player picks one.
+
+```json
+{ "schema": 1,
+  "packs": [ { "version": "0.1.45-rc.1", "tag": "v0.1.45-rc.1", "test": true, "date": "2026-11-20",
+               "bridge": "0.1.30", "loader": "0.1.33", "changelog": { "en_US": "# ...", "pt_BR": "# ..." } } ] }
+```
+
+The pack's Bridge and Loader come from the table in the installer release's notes, its changelog from
+`changelog/<version>.<lang>.md` of Stein-Project/loader. Each mod index entry gets `versions`: full entries (the
+`mods` fields plus `test`, `date` and `changelog`), the minimum Loader read
+from the `steinmod.json` inside each released file and the changelog from the repository at the release's tag. By
+default the Stein Client installs the latest stable pack and, for each mod, the newest stable version whose `loader`
+fits that pack's Loader. An index without `versions` (a third-party one) still works: the current version and the one
+in its `test` block are offered.
 
 **`launch.json`** — `ramGb` (the `-Xmx` the game gets) and `javaArgs`. **`compat.json`** — a list of rules, each
 `{ "when": { "os": "windows|macos|linux", "arch": "x86_64|aarch64", "gpuVendor": "...", "gpuRenderer": "...",

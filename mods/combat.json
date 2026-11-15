@@ -1,0 +1,39 @@
+{
+  "format": 1,
+  "name": "Combat",
+  "author": "X4vieer",
+  "homepage": "https://github.com/stein-project/combat",
+  "source": "https://stein-project.github.io/registry/mods/combat.json",
+  "mods": [
+    {
+      "id": "combat",
+      "modId": "steincombat",
+      "name": "Combat",
+      "file": "Combat.steinmod",
+      "version": "0.1.30",
+      "url": "https://github.com/stein-project/combat/releases/download/v0.1.30/Combat.steinmod",
+      "sha256": "6ff030f885f041f6fd1683b0fabb24d6a62ce5353c3f15f3631cb783951c7799",
+      "loader": "0.1.28",
+      "description": "Aliados e clãs, automações de armadura e efeitos, e movimentação para PvP.",
+      "versions": [
+        {
+          "id": "combat",
+          "modId": "steincombat",
+          "name": "Combat",
+          "file": "Combat.steinmod",
+          "description": "Aliados e clãs, automações de armadura e efeitos, e movimentação para PvP.",
+          "version": "0.1.30",
+          "url": "https://github.com/stein-project/combat/releases/download/v0.1.30/Combat.steinmod",
+          "sha256": "6ff030f885f041f6fd1683b0fabb24d6a62ce5353c3f15f3631cb783951c7799",
+          "loader": "0.1.28",
+          "test": false,
+          "date": "2026-11-03",
+          "changelog": {
+            "en_US": "# Combat 0.1.30: allies are back on screen, fainter ghosts\n\nOnly your clan is protected and hidden again. Allies outside it are always on screen and always take your hits, and ghosts are easier to see through.\n\n- **Your clan**: Clan Protect, hitting through and the three hiding styles (disappear, ghost, gone, with footprints or a square) work as before.\n- **Allies**: marked allies and allied clans are never protected nor hidden, and a hit through your clan lands on an ally behind it.\n- **Ghost allies**: with the hide key, allies can still become ghosts, with or without the name above the head, and they keep taking hits.\n- **Fainter ghosts**: with the new Stein Loader, every ghost is more transparent than before.",
+            "pt_BR": "# Combat 0.1.30: aliados de volta na tela, fantasmas mais transparentes\n\nSó o seu clã volta a ser protegido e escondido. Os aliados de fora dele ficam sempre na tela e sempre levam o seu hit, e dá para ver melhor através dos fantasmas.\n\n- **Seu clã**: Clan Protect, atravessar o hit e os três modos de esconder (sumir, fantasma, sumir 100%, com pegadas ou quadrado) funcionam como antes.\n- **Aliados**: aliados marcados e clãs aliados nunca são protegidos nem escondidos, e o hit que atravessa o seu clã acerta o aliado que está atrás.\n- **Aliados translúcidos**: com a tecla de esconder, os aliados ainda podem virar fantasmas, com ou sem o nome em cima da cabeça, e continuam levando hit.\n- **Fantasmas mais transparentes**: com o Stein Loader novo, todo fantasma fica mais transparente do que antes."
+          }
+        }
+      ]
+    }
+  ]
+}
