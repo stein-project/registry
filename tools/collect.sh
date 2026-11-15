@@ -109,12 +109,13 @@ installer() {
   echo "$file: latest $version${test_tag:+ (test $test_tag)}"
 }
 
-while IFS=$'\t' read -r file repo kind; do
+while IFS=$'\t' read -r file repo kind first; do
   case "$file" in ''|'#'*) continue ;; esac
   case "$kind" in
-    steinmods.json) mod_index "$file" "$repo" ;;
+    steinmods.json) mod_index "$file" "$repo" "$first" ;;
     update.json) client "$file" "$repo" ;;
     installer) installer "$file" "$repo" ;;
+    packs) packs "$file" "$repo" "$first" ;;
     *) echo "::error::tools/releases.tsv: unknown kind \"$kind\" for $file"; exit 1 ;;
   esac
 done < tools/releases.tsv
