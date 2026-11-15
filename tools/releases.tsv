@@ -1,10 +1,16 @@
 # The registry files that follow a repository's releases (tools/collect.sh). One per line, separated by tabs:
-#   <file in the registry>	<owner/repo>	<what to take from its releases>
+#   <file in the registry>	<owner/repo>	<what to take from its releases>	[first tag of the history]
 # "steinmods.json" is a mod's index, "update.json" the Stein Client's, "installer" the "latest" and "test.loader" of
-# stein.json. A mod that joins also needs its index in "sources" of stein.json.
-mods/hud.json	stein-project/hud	steinmods.json
-mods/connect.json	stein-project/connect	steinmods.json
-mods/keybind.json	stein-project/keybind	steinmods.json
-mods/replay.json	stein-project/replay	steinmods.json
+# stein.json, "packs" the pack history (packs.json). The fourth column starts the version history the Stein Client
+# offers (tools/history.py): releases from that tag on, never earlier. An official mod also needs its index in
+# "sources" of stein.json; an extra (Keybind, Minimap, Mouse, Combat) is added by the player with its registry link.
+mods/hud.json	stein-project/hud	steinmods.json	v0.1.17
+mods/connect.json	stein-project/connect	steinmods.json	v0.1.9
+mods/keybind.json	stein-project/keybind	steinmods.json	v0.1.3
+mods/replay.json	stein-project/replay	steinmods.json	v0.1.4
+mods/minimap.json	stein-project/minimap	steinmods.json	v0.1.0
+mods/mouse.json	stein-project/mouse	steinmods.json	v0.1.7
+mods/combat.json	stein-project/combat	steinmods.json	v0.1.30
 client.json	stein-project/client	update.json
 stein.json	stein-project/installer	installer
+packs.json	stein-project/installer	packs	v0.1.44

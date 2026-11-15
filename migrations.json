@@ -41,6 +41,18 @@
     {
       "from": "https://github.com/brenoxavier/SteinMouse/releases/latest/download/steinmods.json",
       "to": "https://github.com/Stein-Project/mouse/releases/latest/download/steinmods.json"
+    },
+    {
+      "from": "https://github.com/Stein-Project/combat/releases/latest/download/steinmods.json",
+      "to": "https://stein-project.github.io/registry/mods/combat.json"
+    },
+    {
+      "from": "https://github.com/Stein-Project/mouse/releases/latest/download/steinmods.json",
+      "to": "https://stein-project.github.io/registry/mods/mouse.json"
+    },
+    {
+      "from": "https://github.com/Stein-Project/minimap/releases/latest/download/steinmods.json",
+      "to": "https://stein-project.github.io/registry/mods/minimap.json"
     }
   ]
 }

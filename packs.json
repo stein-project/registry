@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "packs": [
+    {
+      "version": "0.1.44",
+      "tag": "v0.1.44",
+      "test": false,
+      "date": "2026-11-14",
+      "bridge": "0.1.29",
+      "loader": "0.1.32",
+      "changelog": {
+        "en_US": "# Stein Loader 0.1.44: Stein's video settings\n\nThe game's video settings make way for a new Stein screen, with every option explained in your language, new image options, choosing Vulkan or OpenGL in game, and custom skies from resource packs.\n\n- **New video settings**: options are grouped by topic (General, Image, Display and HDR, World, Textures, Camera and players, 1.7 animations, Performance), each with a hint on what it does, the game's own options included. Sliders apply when you let go, and you can watch the change on your own view or on a landscape.\n- **Image options**: edge smoothing (textures stay crisp), sharpness, texture filters and anisotropy.\n- **Resolution**: draw the world at 30% to 200% of the screen size. Below 100% gives FPS on weaker graphics cards; above, a smoother image.\n- **HDR** (Vulkan, on HDR monitors), with brightness calibration.\n- **Vulkan or OpenGL in game**: the choice lives in the video settings and the Stein Client follows it.\n- **Custom skies**: resource packs that bring their own sky now show it.\n- **Damage camera shake**: now an option.\n- **More FPS with many entities**: 14% to 18% more FPS where there are lots of animals or mobs, with the same image.\n- **Names**: an empty name over a head no longer leaves a small black box.\n- **The Loader's menus share the look** of the new video settings.\n- **Components**: Stein Bridge 0.1.29 and Stein Loader 0.1.32.\n\nTo update, open the Stein Client or the installer again. Mods, options and worlds stay where they are.",
+        "pt_BR": "# Stein Loader 0.1.44: as opções de vídeo do Stein\n\nAs opções de vídeo do jogo deram lugar a uma tela nova do Stein, com cada opção explicada no seu idioma, opções de imagem novas, a escolha entre Vulkan e OpenGL dentro do jogo e céus personalizados dos pacotes de textura.\n\n- **Tela de vídeo nova**: as opções ficam separadas por assunto (Geral, Imagem, Tela e HDR, Mundo, Texturas, Câmera e jogadores, Animações 1.7, Desempenho), cada uma com uma dica do que faz, inclusive as do próprio jogo. Os controles deslizantes aplicam quando você solta, e dá para ver a mudança na sua visão ou numa paisagem.\n- **Opções de imagem**: suavização de bordas (as texturas continuam nítidas), nitidez, filtros de textura e anisotropia.\n- **Resolução**: desenhe o mundo de 30% a 200% do tamanho da tela. Abaixo de 100% ganha FPS em placas fracas; acima, a imagem fica mais lisa.\n- **HDR** (Vulkan, em monitores HDR), com calibração do brilho.\n- **Vulkan ou OpenGL dentro do jogo**: a escolha fica na tela de vídeo e o Stein Client passa a respeitá-la.\n- **Céu personalizado**: pacotes de textura que trazem céu próprio agora mostram esse céu.\n- **Tremor ao tomar dano**: agora é uma opção.\n- **Mais FPS com muitas entidades**: em lugares com muitos animais ou mobs, de 14% a 18% mais FPS, sem mudar a imagem.\n- **Nomes**: um nome vazio sobre a cabeça não deixa mais uma caixinha preta.\n- **Menus do Loader com o mesmo visual** da tela de vídeo nova.\n- **Componentes**: Stein Bridge 0.1.29 e Stein Loader 0.1.32.\n\nPara atualizar, abra o Stein Client ou o instalador novamente. Mods, opções e mundos continuam onde estão."
+      }
+    }
+  ]
+}

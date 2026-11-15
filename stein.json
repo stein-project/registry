@@ -33,5 +33,11 @@
     "https://stein-project.github.io/registry/mods/hud.json",
     "https://stein-project.github.io/registry/mods/connect.json",
     "https://stein-project.github.io/registry/mods/replay.json"
+  ],
+  "extras": [
+    "https://stein-project.github.io/registry/mods/keybind.json",
+    "https://stein-project.github.io/registry/mods/minimap.json",
+    "https://stein-project.github.io/registry/mods/mouse.json",
+    "https://stein-project.github.io/registry/mods/combat.json"
   ]
 }
