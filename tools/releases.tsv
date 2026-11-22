@@ -8,6 +8,7 @@ mods/hud.json	stein-project/hud	steinmods.json	v0.1.17
 mods/connect.json	stein-project/connect	steinmods.json	v0.1.9
 mods/keybind.json	stein-project/keybind	steinmods.json	v0.1.3
 mods/replay.json	stein-project/replay	steinmods.json	v0.1.4
+mods/sprint.json	stein-project/sprint	steinmods.json	v0.1.0
 mods/minimap.json	stein-project/minimap	steinmods.json	v0.1.0
 mods/mouse.json	stein-project/mouse	steinmods.json	v0.1.7
 mods/combat.json	stein-project/combat	steinmods.json	v0.1.30

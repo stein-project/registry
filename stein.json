@@ -27,12 +27,14 @@
   "defaultMods": [
     "hud",
     "connect",
-    "replay"
+    "replay",
+    "sprint"
   ],
   "sources": [
     "https://stein-project.github.io/registry/mods/hud.json",
     "https://stein-project.github.io/registry/mods/connect.json",
-    "https://stein-project.github.io/registry/mods/replay.json"
+    "https://stein-project.github.io/registry/mods/replay.json",
+    "https://stein-project.github.io/registry/mods/sprint.json"
   ],
   "extras": [
     "https://stein-project.github.io/registry/mods/keybind.json",

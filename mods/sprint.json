@@ -1,0 +1,20 @@
+{
+  "format": 1,
+  "name": "Sprint",
+  "author": "X4vieer",
+  "homepage": "https://github.com/stein-project/sprint",
+  "source": "https://stein-project.github.io/registry/mods/sprint.json",
+  "mods": [
+    {
+      "id": "sprint",
+      "modId": "steinsprint",
+      "name": "Sprint",
+      "file": "Sprint.steinmod",
+      "version": "0.1.0",
+      "url": "https://github.com/stein-project/sprint/releases/download/v0.1.0/Sprint.steinmod",
+      "sha256": "9d53972df534c438df66467b83fa935a45f0f8c7a176cf161ddae22a1aa41633",
+      "loader": "0.1.35",
+      "description": "Toggle sprint e toggle sneak com uma tecla, e o estado na HUD."
+    }
+  ]
+}
