@@ -54,5 +54,13 @@
       "from": "https://github.com/Stein-Project/minimap/releases/latest/download/steinmods.json",
       "to": "https://stein-project.github.io/registry/mods/minimap.json"
     }
+  ],
+  "enables": [
+    {
+      "id": "sprint-for-combat",
+      "mod": "sprint",
+      "whenInstalled": "steincombat",
+      "notice": "O toggle sprint saiu do Combat e agora é o mod Sprint: ele foi ligado e traz a sua tecla do Combat."
+    }
   ]
 }
